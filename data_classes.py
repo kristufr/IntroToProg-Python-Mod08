@@ -22,14 +22,17 @@ class Person:
     - C.Cipolla, 3/13/2024, Modified into its own module
     """
 
+    # Constructor
     def __init__(self, first_name: str = "", last_name: str = ""):
         self.first_name = first_name
         self.last_name = last_name
 
+    # First name getter
     @property  # (Use this decorator for the getter or accessor)
     def first_name(self):
         return self.__first_name.title()
 
+    # First name setter: Letters Only
     @first_name.setter
     def first_name(self, value: str):
         if value.isalpha() or value == "":
@@ -37,10 +40,12 @@ class Person:
         else:
             raise ValueError("The first name should only contain letters.")
 
+    # last name getter
     @property
     def last_name(self):
         return self.__last_name.title()
 
+    # last name setter: Letters Only
     @last_name.setter
     def last_name(self, value: str):
         if value.isalpha() or value == "":
@@ -48,6 +53,7 @@ class Person:
         else:
             raise ValueError("The last name should only contain letters.")
 
+    # String override
     def __str__(self):
         return f"{self.first_name},{self.last_name}"
 
@@ -67,6 +73,7 @@ class Employee(Person):
     - C.Cipolla, 3/13/2024, Modified into its own module
     """
 
+    # Constructor
     def __init__(self, first_name: str = "", last_name: str = "", review_date: str = "1900-01-01",
                  review_rating: int = 3):
 
@@ -74,10 +81,12 @@ class Employee(Person):
         self.review_date = review_date
         self.review_rating = review_rating
 
+    # review date getter
     @property
     def review_date(self):
         return self.__review_date
 
+    # review date setter: ISO format
     @review_date.setter
     def review_date(self, value: str):
         try:
@@ -86,10 +95,12 @@ class Employee(Person):
         except ValueError:
             raise ValueError("Incorrect data format, should be YYYY-MM-DD")
 
+    # review rating getter
     @property
     def review_rating(self):
         return self.__review_rating
 
+    # review rating setter: 1-5 only
     @review_rating.setter
     def review_rating(self, value: str):
         if value in (1, 2, 3, 4, 5):
@@ -97,5 +108,6 @@ class Employee(Person):
         else:
             raise ValueError("Please choose only values 1 through 5")
 
+    # string override
     def __str__(self):
         return f"{self.first_name},{self.last_name},{self.review_date},{self.__review_rating}"
