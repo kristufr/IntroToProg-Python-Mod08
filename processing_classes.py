@@ -5,7 +5,8 @@
 # Change Log: (Who, When, What)
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
-
+import json
+from data_classes import Employee
 
 
 class FileProcessor:
@@ -27,18 +28,18 @@ class FileProcessor:
 
         :param file_name: string data with name of file to read from
         :param employee_data: list of dictionary rows to be filled with file data
-        :param employee_type: an reference to the Employee class
+        :param employee_type: a reference to the Employee class
         :return: list
         """
         try:
             with open(file_name, "r") as file:
                 list_of_dictionary_data = json.load(file)  # the load function returns a list of dictionary rows.
                 for employee in list_of_dictionary_data:
-                    employee_object = employee_type()
-                    employee_object.first_name=employee["FirstName"]
-                    employee_object.last_name=employee["LastName"]
-                    employee_object.review_date=employee["ReviewDate"]
-                    employee_object.review_rating=employee["ReviewRating"]
+                    employee_object = employee_type
+                    employee_object.first_name = employee["FirstName"]
+                    employee_object.last_name = employee["LastName"]
+                    employee_object.review_date = employee["ReviewDate"]
+                    employee_object.review_rating = employee["ReviewRating"]
                     employee_data.append(employee_object)
         except FileNotFoundError:
             raise FileNotFoundError("Text file must exist before running this script!")
@@ -75,7 +76,5 @@ class FileProcessor:
             raise TypeError("Please check that the data is a valid JSON format")
         except PermissionError:
             raise PermissionError("Please check the data file's read/write permission")
-        except Exception as e:
+        except Exception:  # as e:
             raise Exception("There was a non-specific error!")
-
-
