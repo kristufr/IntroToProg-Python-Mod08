@@ -6,6 +6,7 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
+from datetime import date
 
 
 class Person:
@@ -25,7 +26,7 @@ class Person:
         self.first_name = first_name
         self.last_name = last_name
 
-    @property
+    @property  # (Use this decorator for the getter or accessor)
     def first_name(self):
         return self.__first_name.title()
 
@@ -34,7 +35,7 @@ class Person:
         if value.isalpha() or value == "":
             self.__first_name = value
         else:
-            raise ValueError("The first name should not contain numbers.")
+            raise ValueError("The first name should only contain letters.")
 
     @property
     def last_name(self):
@@ -45,7 +46,7 @@ class Person:
         if value.isalpha() or value == "":
             self.__last_name = value
         else:
-            raise ValueError("The last name should not contain numbers.")
+            raise ValueError("The last name should only contain letters.")
 
     def __str__(self):
         return f"{self.first_name},{self.last_name}"
@@ -58,7 +59,7 @@ class Employee(Person):
     Properties:
     - first_name (str): The employee's first name.
     - last_name (str): The employee's last name.
-    - review_date (date): The data of the employee review.
+    - review_date (date): The data (date?) of the employee review.
     - review_rating (int): The review rating of the employee's performance (1-5)
 
     ChangeLog:
@@ -66,9 +67,10 @@ class Employee(Person):
     - C.Cipolla, 3/13/2024, Modified into its own module
     """
 
-    def __init__(self, first_name: str = "", last_name: str = "", review_date: str = "1900-01-01", review_rating: int = 3):
+    def __init__(self, first_name: str = "", last_name: str = "", review_date: str = "1900-01-01",
+                 review_rating: int = 3):
 
-        super().__init__(first_name=first_name,last_name=last_name)
+        super().__init__(first_name=first_name, last_name=last_name)
         self.review_date = review_date
         self.review_rating = review_rating
 
@@ -97,5 +99,3 @@ class Employee(Person):
 
     def __str__(self):
         return f"{self.first_name},{self.last_name},{self.review_date},{self.__review_rating}"
-
-
