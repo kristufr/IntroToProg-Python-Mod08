@@ -76,5 +76,5 @@ class FileProcessor:
             raise TypeError("Please check that the data is a valid JSON format")
         except PermissionError:
             raise PermissionError("Please check the data file's read/write permission")
-        except Exception:  # as e:
-            raise Exception("There was a non-specific error!")
+        except Exception as e:
+            raise Exception("There was a non-specific error!", e)

@@ -6,7 +6,7 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
-
+from data_classes import Employee
 
 class IO:
     """
@@ -16,11 +16,10 @@ class IO:
     - RRoot,1.1.2030,Created Class
     - C.Cipolla, 3/13/2024, Modified into its own module
     """
-    pass
 
     @staticmethod
-    def output_error_messages(message: str, error: Exception = None):
-        """ This function displays the a custom error messages to the user
+    def output_error_messages(message: str, error: Exception = None) -> None:
+        """ This function displays a custom error messages to the user
 
         ChangeLog: (Who, When, What)
         RRoot,1.3.2030,Created function
@@ -37,9 +36,8 @@ class IO:
             print("-- Technical Error Message -- ")
             print(error, error.__doc__, type(error), sep='\n')
 
-
     @staticmethod
-    def output_menu(menu: str):
+    def output_menu(menu: str) -> None:
         """ This function displays the menu of choices to the user
 
         ChangeLog: (Who, When, What)
@@ -52,9 +50,8 @@ class IO:
         print(menu)
         print()
 
-
     @staticmethod
-    def input_menu_choice():
+    def input_menu_choice() -> str:
         """ This function gets a menu choice from the user
 
         ChangeLog: (Who, When, What)
@@ -73,9 +70,8 @@ class IO:
 
         return choice
 
-
     @staticmethod
-    def output_employee_data(employee_data: list):
+    def output_employee_data(employee_data: list) -> None:
         """ This function displays employee data to the user
 
         ChangeLog: (Who, When, What)
@@ -86,7 +82,7 @@ class IO:
 
         :return: None
         """
-        message:str = ''
+        message: str = ''
         print()
         print("-" * 50)
         for employee in employee_data:
@@ -102,12 +98,12 @@ class IO:
                 message = " {} {} is rated as 1 (Not Meeting Expectations"
 
             print(message.format(employee.first_name, employee.last_name, employee.review_date, employee.review_rating))
+        #     todo: I don't think we need the review date or rating
         print("-" * 50)
         print()
 
-
     @staticmethod
-    def input_employee_data(employee_data: list, employee_type: Employee):
+    def input_employee_data(employee_data: list, employee_type: Employee) -> list:
         """ This function gets the first name, last name, and GPA from the user
 
         ChangeLog: (Who, When, What)
@@ -121,7 +117,7 @@ class IO:
 
         try:
             # Input the data
-            employee_object = employee_type()
+            employee_object = employee_type
             employee_object.first_name = input("What is the employee's first name? ")
             employee_object.last_name = input("What is the employee's last name? ")
             employee_object.review_date = input("What is their review date? ")
@@ -134,4 +130,3 @@ class IO:
             IO.output_error_messages("There was a non-specific error!", e)
 
         return employee_data
-
