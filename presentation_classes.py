@@ -8,6 +8,7 @@
 
 from data_classes import Employee
 
+
 class IO:
     """
     A collection of presentation layer functions that manage user input and output
@@ -111,7 +112,7 @@ class IO:
         C.Cipolla, 3/13/2024, Modified as required to operate in this module
 
         :param employee_data: list of dictionary rows to be filled with input data
-
+        :param employee_type: Employee an object of Employee type
         :return: list
         """
 
