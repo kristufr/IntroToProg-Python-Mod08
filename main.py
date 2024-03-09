@@ -6,8 +6,14 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
-import processing_classes as proc
-import presentation_classes as pres
+try:
+    if __name__ == "__main__":
+        import processing_classes as proc
+        import presentation_classes as pres
+    else:
+        raise Exception("This file starts the application and should not be imported.")
+except Exception as e:
+    print(e.__str__())
 
 # Constant Declaration
 FILE_NAME: str = "EmployeeRatings.json"

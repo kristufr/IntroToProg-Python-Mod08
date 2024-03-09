@@ -6,7 +6,13 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
-from data_classes import Employee
+try:
+    if __name__ == "__main__":
+        raise Exception("Please use the main.py file to start this application.")
+    else:
+        from data_classes import Employee  # This will only import if the exception is not thrown.
+except Exception as e:
+    print(e.__str__())
 
 
 class IO:
