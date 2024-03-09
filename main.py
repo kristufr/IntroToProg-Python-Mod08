@@ -28,7 +28,8 @@ menu_choice = ''
 # Beginning of the main body of this script
 employees = proc.FileProcessor.read_employee_data_from_file(file_name=FILE_NAME,
                                                             employee_data=employees,
-                                                            employee_type=Employee)  # Note this is the class name (ignore the warning)
+                                                            employee_type=Employee)
+# Note Employee is the class name (ignore the warning)
 
 # Repeat the follow tasks
 while True:
@@ -46,7 +47,9 @@ while True:
     elif menu_choice == "2":  # Get new data (and display the change)
         try:
             employees = pres.IO.input_employee_data(employee_data=employees,
-                                                    employee_type=Employee)  # Note this is the class name (ignore the warning)
+                                                    employee_type=Employee)
+            # Note Employee is the class name (ignore the warning)
+
             pres.IO.output_employee_data(employee_data=employees)
         except Exception as e:
             pres.IO.output_error_messages("Unhandled Exception", e)
