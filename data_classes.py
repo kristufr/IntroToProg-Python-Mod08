@@ -8,11 +8,12 @@
 
 try:
     if __name__ == "__main__":
-        raise Exception("Please use the main.py file to start this application.")
+        raise Exception("\n\t  * Please use the main.py file to start this application.")
     else:
         from datetime import date  # This will only import if the exception is not thrown.
 except Exception as e:
     print(e.__str__())
+    exit()
 
 
 class Person:

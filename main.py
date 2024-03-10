@@ -6,14 +6,17 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
+
 try:
     if __name__ == "__main__":
         import processing_classes as proc
         import presentation_classes as pres
+        from data_classes import Employee
     else:
-        raise Exception("This file starts the application and should not be imported.")
+        raise Exception("main.py starts the application and should not be imported.")
 except Exception as e:
     print(e.__str__())
+    exit()
 
 # Constant Declaration
 FILE_NAME: str = "EmployeeRatings.json"

@@ -6,14 +6,17 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
-try:
-    if __name__ == "__main__":
-        raise Exception("Please use the main.py file to start this application.")
-    else:
-        import json
-        from data_classes import Employee  # This will only import if the exception is not thrown.
-except Exception as e:
-    print(e.__str__())
+# try:
+#     if __name__ == "__main__":
+#         raise Exception("\n\t  * Please use the main.py file to start this application.")
+#     else:
+#         import json
+#         from data_classes import Employee  # This will only import if the exception is not thrown.
+# except Exception as e:
+#     print(e.__str__())
+#     exit()
+import json
+from data_classes import Employee  # This will only import if the exception is not thrown.
 
 
 class FileProcessor:
