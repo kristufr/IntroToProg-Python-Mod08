@@ -102,10 +102,12 @@ class IO:
             elif employee.review_rating == 2:
                 message = " {} {} is rated as 2 (Building)"
             elif employee.review_rating == 1:
-                message = " {} {} is rated as 1 (Not Meeting Expectations"
+                message = " {} {} is rated as 1 (Not Meeting Expectations)"
 
-            print(message.format(employee.first_name, employee.last_name, employee.review_date, employee.review_rating))
-        #     todo: I don't think we need the review date or rating
+            # print(message.format(employee.first_name, employee.last_name, employee.review_date,
+            # employee.review_rating))
+            print(message.format(employee.first_name, employee.last_name))  # I don't think we need the review date
+            # or rating
         print("-" * 50)
         print()
 
@@ -124,10 +126,10 @@ class IO:
 
         try:
             # Input the data
-            employee_object = employee_type
+            employee_object = employee_type()
             employee_object.first_name = input("What is the employee's first name? ")
             employee_object.last_name = input("What is the employee's last name? ")
-            employee_object.review_date = input("What is their review date? ")
+            employee_object.review_date = input("What is their review date? [yyyy-mm-dd format]")
             employee_object.review_rating = int(input("What is their review rating? "))
             employee_data.append(employee_object)
 

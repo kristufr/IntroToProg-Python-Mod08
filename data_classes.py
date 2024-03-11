@@ -6,14 +6,15 @@
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
 
-try:
-    if __name__ == "__main__":
-        raise Exception("\n\t  * Please use the main.py file to start this application.")
-    else:
-        from datetime import date  # This will only import if the exception is not thrown.
-except Exception as e:
-    print(e.__str__())
-    exit()
+# try:
+#     if __name__ == "__main__":
+#         raise Exception("\n\t  * Please use the main.py file to start this application.")
+#     else:
+#         from datetime import date  # This will only import if the exception is not thrown.
+# except Exception as e:
+#     print(e.__str__())
+#     exit()
+from datetime import date
 
 
 class Person:
@@ -43,7 +44,7 @@ class Person:
     @first_name.setter
     def first_name(self, value: str):
         if value.isalpha() or value == "":
-            self.__first_name = value
+            self.__first_name = value.title()
         else:
             raise ValueError("The first name should only contain letters.")
 

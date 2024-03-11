@@ -45,7 +45,7 @@ class FileProcessor:
             with open(file_name, "r") as file:
                 list_of_dictionary_data = json.load(file)  # the load function returns a list of dictionary rows.
                 for employee in list_of_dictionary_data:
-                    employee_object = employee_type
+                    employee_object = employee_type()
                     employee_object.first_name = employee["FirstName"]
                     employee_object.last_name = employee["LastName"]
                     employee_object.review_date = employee["ReviewDate"]
