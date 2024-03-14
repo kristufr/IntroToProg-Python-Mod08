@@ -35,10 +35,14 @@ employees: list = []  # a table of employee data
 menu_choice = ''
 
 # Beginning of the main body of this script
-employees = proc.FileProcessor.read_employee_data_from_file(file_name=FILE_NAME,
+try:
+    employees = proc.FileProcessor.read_employee_data_from_file(file_name=FILE_NAME,
                                                             employee_data=employees,
                                                             employee_type=Employee)
 # Note Employee is the class name (ignore the warning)
+except Exception as e:
+    pres.IO.output_error_messages("Got an exception reading from file", e)
+
 
 # Repeat the follow tasks
 while True:
@@ -50,7 +54,7 @@ while True:
         try:
             pres.IO.output_employee_data(employee_data=employees)
         except Exception as e:
-            pres.IO.output_error_messages("Unhandled Exception", e)
+            pres.IO.output_error_messages("Exception occurred when outputting employee data", e)
         continue
 
     elif menu_choice == "2":  # Get new data (and display the change)
@@ -61,7 +65,7 @@ while True:
 
             pres.IO.output_employee_data(employee_data=employees)
         except Exception as e:
-            pres.IO.output_error_messages("Unhandled Exception", e)
+            pres.IO.output_error_messages("Exception when inputting then displaying employee data", e)
         continue
 
     elif menu_choice == "3":  # Save data in a file

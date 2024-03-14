@@ -5,6 +5,7 @@
 # Change Log: (Who, When, What)
 #   C.Cipolla, 3/13/2024,Created Script
 # ------------------------------------------------------------------------------------------------- #
+from json import JSONDecodeError
 
 try:
     if __name__ == "__main__":
@@ -27,7 +28,7 @@ class FileProcessor:
     """
 
     @staticmethod
-    def read_employee_data_from_file(file_name: str, employee_data: list, employee_type: Employee):
+    def read_employee_data_from_file(file_name: str, employee_data: list, employee_type: object) -> list[object]:
         """ This function reads data from a json file and loads it into a list of dictionary rows
 
         ChangeLog: (Who, When, What)
@@ -51,6 +52,8 @@ class FileProcessor:
                     employee_data.append(employee_object)
         except FileNotFoundError:
             raise FileNotFoundError("Text file must exist before running this script!")
+        except JSONDecodeError as e:
+            raise JSONDecodeError("JSON data in file isn\'t valid")
         except Exception:
             raise Exception("There was a non-specific error!")
         return employee_data
@@ -86,3 +89,4 @@ class FileProcessor:
             raise PermissionError("Please check the data file's read/write permission")
         except Exception as err:
             raise Exception("There was a non-specific error!", err)
+

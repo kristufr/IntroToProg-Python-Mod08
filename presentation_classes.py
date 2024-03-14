@@ -74,6 +74,7 @@ class IO:
                 raise Exception("Please, choose only 1, 2, 3, or 4")
         except Exception as e:
             IO.output_error_messages(e.__str__())  # passing the exception object to avoid the technical message
+            # IO.output_error_messages(e)  # passing the exception object to avoid the technical message
 
         return choice
 
@@ -112,7 +113,7 @@ class IO:
         print()
 
     @staticmethod
-    def input_employee_data(employee_data: list, employee_type: Employee) -> list:
+    def input_employee_data(employee_data: list, employee_type: object) -> list[object]:
         """ This function gets the first name, last name, and GPA from the user
 
         ChangeLog: (Who, When, What)
